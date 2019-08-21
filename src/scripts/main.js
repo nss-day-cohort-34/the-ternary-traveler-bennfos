@@ -3,3 +3,11 @@
 //edit the point of interest by adjusting the cost and adding a review.
 //be able to delete points of interest from her list.
 //an alert to to confirm the delete action
+
+import dom from "./dom.js"
+import data from "./data.js"
+
+dom.renderTripCard()
+
+
+data.getPOIData()

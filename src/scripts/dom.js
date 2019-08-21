@@ -1,8 +1,8 @@
 import factory from "./factory.js"
 
 const dom = {
-    renderTripsContainer () {
-        const tripsContainer = document.querySelector("#tripsContainer")
+    renderTripCard () {
+        const tripsContainer = document.querySelector("#trips__container")
         let tripCardHTML = factory.createTripCard()
         tripsContainer.innerHTML += tripCardHTML
     }
