@@ -53,10 +53,7 @@ const getExistingPOIs = () => {
                         domRef.innerHTML = `
                             <section id="inputContainer">
                             <input type="hidden" id="interestId" value="">
-                                <fieldset>
-                                    <label for="name">Name</label>
-                                    <input id="placeNameInput" type="text">
-                                </fieldset>
+                            <input type="hidden" id="placeId" value="">
                                 <fieldset>
                                     <label for="name">Name</label>
                                     <input id="interestNameInput" type="text">
@@ -78,24 +75,39 @@ const getExistingPOIs = () => {
                                 <button id="saveInterest__button">Save</button>
                             </section>
                         `
-                        const hiddenArticleId = document.getElementById("interestId")
-                        const placeNameInput = document.querySelector("#placeNameInput")
+                        const hiddenInterestId = document.getElementById("interestId")
+                        const hiddenPlaceId = document.querySelector("#placeId")
                         const interestNameInput = document.querySelector("#interestNameInput")
                         const descriptionInput = document.querySelector("#descriptionInput")
                         const costInput = document.querySelector("#costInput")
                         const reviewInput = document.querySelector("#reviewInput")
                         data.updateFormFields(interestToEditId)
                             .then(interest => {
-                            hiddenArticleId.value = interest.id
-                            placeNameInput.value = interest.place.name
-                            interestNameInput.value = interest.name
-                            descriptionInput.value = interest.description
-                            costInput.value = interest.cost
-                            reviewInput.value = interest.review
-                            console.log(hiddenArticleId.value)
-                })
+                                hiddenInterestId.value = interest.id
+                                hiddenPlaceId.value = interest.place.id
+                                interestNameInput.value = interest.name
+                                descriptionInput.value = interest.description
+                                costInput.value = interest.cost
+                                reviewInput.value = interest.review
+                            })
+                        } else if (event.target.id.startsWith("saveInterest")) {
+                            const hiddenInterestId = document.getElementById("interestId")
+                            const hiddenPlaceId = document.querySelector("#placeId")
+                            const interestNameInput = document.querySelector("#interestNameInput")
+                            const descriptionInput = document.querySelector("#descriptionInput")
+                            const costInput = document.querySelector("#costInput")
+                            const reviewInput = document.querySelector("#reviewInput")
+                            const editedInterest = factory.createInterestObject(hiddenInterestId.value, hiddenPlaceId.value, interestNameInput.value, descriptionInput.value, costInput.value, reviewInput.value)
+                            data.editInterest(editedInterest, hiddenInterestId.value)
+                                .then(() => {
+                                    data.getPOIData(hiddenInterestId.value)
+                                        .then(interest => {
+                                            domRef.innerHTML = factory.createPOICard(interest)
+                                            // dom.renderInterestCard(domRef, editedInterestHTML)
+                                        })
+                                })
 
-                    }
+                            }
 
                     })
             })

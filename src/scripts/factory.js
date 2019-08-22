@@ -24,7 +24,18 @@ const factory = {
         </div>
         <button id="edit--${interestObj.id}">Edit</button>
         <button id="delete--${interestObj.id}">Delete</button>
+        <button id="saveInterest__button">Save</button>
         `
+    },
+    createInterestObject (interestId, placeId, name, description, cost, review) {
+        return {
+            interestId: interestId,
+            placeId: placeId,
+            name: name,
+            description: description,
+            cost: cost,
+            review: review
+        }
     }
 }
 

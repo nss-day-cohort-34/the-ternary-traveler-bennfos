@@ -18,28 +18,31 @@
   ],
   "interests": [
     {
-      "id": 1,
-      "placeId": 1,
-      "name": "Local Market",
+      "interestId": "1",
+      "placeId": "1",
+      "name": "Local Market!",
       "description": "Local market where you can purchase local products and try the local food",
-      "cost": 1234.54,
-      "review": "BOOORRRRRRIIIINNNNNGGGGGGG!!!"
+      "cost": "1234.54",
+      "review": "BOOORRRRRRIIIINNNNNGGGGGGG!!!",
+      "id": 1
     },
     {
-      "id": 2,
-      "placeId": 2,
-      "name": "Silent Disco",
+      "interestId": "2",
+      "placeId": "2",
+      "name": "Silent Disco!",
       "description": "shhhhhh",
-      "cost": 134.23,
-      "review": ""
+      "cost": "134.23",
+      "review": "YYEEESSSS",
+      "id": 2
     },
     {
-      "id": 3,
-      "placeId": 3,
+      "interestId": "3",
+      "placeId": "3",
       "name": "Stinky Cheese Festival",
       "description": "yum!",
-      "cost": 34.50,
-      "review": ""
+      "cost": "34.5",
+      "review": "If I'm honest, too stinky.",
+      "id": 3
     }
   ]
 }

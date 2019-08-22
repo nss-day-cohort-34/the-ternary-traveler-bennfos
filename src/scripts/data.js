@@ -18,6 +18,16 @@ const data = {
         return fetch(`http://localhost:8088/interests/${interestId}?_expand=place`)
         .then(response => response.json())
     },
+    editInterest(updatedObject, interestId) {
+        return fetch(`http://localhost:8088/interests/${interestId}?_expand=place`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(updatedObject)
+        })
+        .then(response => response.json())
+    }
 }
 
 export default data
