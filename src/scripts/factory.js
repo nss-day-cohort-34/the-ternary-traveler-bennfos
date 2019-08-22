@@ -27,6 +27,19 @@ const factory = {
         <button id="saveInterest__button">Save</button>
         `
     },
+    createNewPOICard (interestObj) {
+        return `
+        <div id="POI__container--${interestObj.placeId}">
+            <h3>${interestObj.name}</h3>
+            <p>${interestObj.description}</p>
+            <p>Cost: $${interestObj.cost}</p>
+            <p>Review: ${interestObj.review}</p>
+        </div>
+        <button id="edit--${interestObj.id}">Edit</button>
+        <button id="delete--${interestObj.id}">Delete</button>
+        <button id="saveInterest__button">Save</button>
+        `
+    },
     createInterestObject (interestId, placeId, name, description, cost, review) {
         return {
             interestId: interestId,

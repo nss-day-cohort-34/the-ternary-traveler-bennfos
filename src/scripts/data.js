@@ -27,6 +27,16 @@ const data = {
             body: JSON.stringify(updatedObject)
         })
         .then(response => response.json())
+    },
+    saveInterest(updatedObject, interestId) {
+        return fetch(`http://localhost:8088/interests/${interestId}?_expand=place`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(updatedObject)
+        })
+        .then(response => response.json())
     }
 }
 

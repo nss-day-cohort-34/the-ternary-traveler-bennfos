@@ -27,9 +27,10 @@ const getExistingPOIs = () => {
                         domRef.innerHTML = `
                             <section id="inputContainer">
                             <input type="hidden" id="interestId" value="">
+                            <input type="hidden" id="placeId" value="">
                                 <fieldset>
                                     <label for="name">Name</label>
-                                    <input id="nameInput" type="text">
+                                    <input id="interestNameInput" type="text">
                                 </fieldset>
                                 <fieldset>
                                     <label for="description">Description</label>
@@ -45,7 +46,7 @@ const getExistingPOIs = () => {
                                 </fieldset>
                             </section>
                             <section>
-                                <button id="saveInterest__button">Save</button>
+                                <button id="saveInterestAfterDelete__button">Save</button>
                             </section>
                         `
                     } else if (event.target.id.startsWith("edit--")) {
@@ -103,11 +104,24 @@ const getExistingPOIs = () => {
                                     data.getPOIData(hiddenInterestId.value)
                                         .then(interest => {
                                             domRef.innerHTML = factory.createPOICard(interest)
-                                            // dom.renderInterestCard(domRef, editedInterestHTML)
                                         })
                                 })
-
-                            }
+                        } else if (event.target.id.startsWith("saveInterestAfterDelete")) {
+                            const hiddenInterestId = document.getElementById("interestId")
+                            const hiddenPlaceId = document.querySelector("#placeId")
+                            const interestNameInput = document.querySelector("#interestNameInput")
+                            const descriptionInput = document.querySelector("#descriptionInput")
+                            const costInput = document.querySelector("#costInput")
+                            const reviewInput = document.querySelector("#reviewInput")
+                            const editedInterest = factory.createInterestObject(hiddenInterestId.value, hiddenPlaceId.value, interestNameInput.value, descriptionInput.value, costInput.value, reviewInput.value)
+                            data.saveInterest(editedInterest, hiddenInterestId.value)
+                                .then(() => {
+                                    data.getPOIData(hiddenInterestId.value)
+                                        .then(interest => {
+                                            domRef.innerHTML = factory.createNewPOICard(interest)
+                                        })
+                                })
+                        }
 
                     })
             })
