@@ -3,12 +3,18 @@ body {
     color: rgba(39, 34, 34, 0.849);
 }
 
-.contactCard {
+.trip__card {
+    border: 3px solid darkslategrey;
+    background-color: darkgoldenrod;
+    width: 350px;
+}
+
+.interest__card {
     border: 3px solid darkgoldenrod;
-    background-color: rgba(248, 232, 232, 0.849);
-    width: 600px;
+    background-color: rgba(248, 248, 248, 0.849);
+    width: 300px;
     margin: 20px;
-    height: 150px;
+    height: 300px;
     color: rgba(48, 48, 48, 0.685);
 }
 

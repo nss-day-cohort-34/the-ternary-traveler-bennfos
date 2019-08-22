@@ -22,7 +22,23 @@
       "placeId": 1,
       "name": "Local Market",
       "description": "Local market where you can purchase local products and try the local food",
-      "cost": 0.00,
+      "cost": 1234.54,
+      "review": "BOOORRRRRRIIIINNNNNGGGGGGG!!!"
+    },
+    {
+      "id": 2,
+      "placeId": 2,
+      "name": "Silent Disco",
+      "description": "shhhhhh",
+      "cost": 134.23,
+      "review": ""
+    },
+    {
+      "id": 3,
+      "placeId": 3,
+      "name": "Stinky Cheese Festival",
+      "description": "yum!",
+      "cost": 34.50,
       "review": ""
     }
   ]

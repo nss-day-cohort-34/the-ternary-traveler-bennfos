@@ -1,7 +1,23 @@
 const data = {
-    getPOIData(){
-        return fetch("http://localhost:8088/interests?_expand=place")
+    getAllPOIs() {
+        return fetch ("http://localhost:8088/interests?_expand=place")
             .then(response => response.json())
-            .then(parsedPlaces => console.log(parsedPlaces))
-    }
+    },
+
+    getPOIData(interestId){
+        return fetch(`http://localhost:8088/interests/${interestId}?_expand=place`)
+            .then(response => response.json())
+    },
+    deleteInterest(interestId) {
+        return fetch(`http://localhost:8088/interests/${interestId}`, {
+            method: "DELETE"
+        })
+        .then(response => response.json())
+    },
+    updateFormFields(interestId) {
+        return fetch(`http://localhost:8088/interests/${interestId}?_expand=place`)
+        .then(response => response.json())
+    },
 }
+
+export default data
